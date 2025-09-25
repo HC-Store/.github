@@ -72,24 +72,24 @@ Nosso objetivo é unir **estilo, qualidade e praticidade**, disponibilizando pro
 ## 📊 Diagrama de Casos de Uso
 
 ```mermaid
-%%{init: {'theme': 'neutral'}}%%
-usecaseDiagram
+flowchart LR
+    subgraph Cliente
+        A1["Cadastrar-se / Autenticar"]
+        A2["Pesquisar Produtos"]
+        A3["Adicionar ao Carrinho"]
+        A4["Finalizar Compra"]
+        A5["Acompanhar Pedido"]
+    end
 
-actor Cliente
-actor Administrador
-actor SistemaDePagamento as "Sistema de Pagamento"
-actor SistemaDeEntrega as "Sistema de Entrega"
+    subgraph Administrador
+        B1["Gerenciar Produtos"]
+        B2["Gerenciar Usuários"]
+        B3["Gerenciar Pedidos"]
+        B4["Gerar Relatórios"]
+    end
 
-Cliente --> (Cadastrar-se / Autenticar)
-Cliente --> (Pesquisar Produtos)
-Cliente --> (Adicionar ao Carrinho)
-Cliente --> (Finalizar Compra)
-Cliente --> (Acompanhar Pedido)
+    C["Sistema de Pagamento"]
+    D["Sistema de Entrega"]
 
-( Finalizar Compra ) --> SistemaDePagamento
-( Acompanhar Pedido ) --> SistemaDeEntrega
-
-Administrador --> (Gerenciar Produtos)
-Administrador --> (Gerenciar Usuários)
-Administrador --> (Gerenciar Pedidos)
-Administrador --> (Gerar Relatórios)
+    A4 --> C
+    A5 --> D
