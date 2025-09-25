@@ -67,3 +67,29 @@ Nosso objetivo é unir **estilo, qualidade e praticidade**, disponibilizando pro
 7. **Manutenibilidade**
    - Código modular e documentado.
    - Fácil integração com APIs externas (pagamento, logística).
+  
+     
+## 📊 Diagrama de Casos de Uso
+
+```mermaid
+%%{init: {'theme': 'neutral'}}%%
+usecaseDiagram
+
+actor Cliente
+actor Administrador
+actor SistemaDePagamento as "Sistema de Pagamento"
+actor SistemaDeEntrega as "Sistema de Entrega"
+
+Cliente --> (Cadastrar-se / Autenticar)
+Cliente --> (Pesquisar Produtos)
+Cliente --> (Adicionar ao Carrinho)
+Cliente --> (Finalizar Compra)
+Cliente --> (Acompanhar Pedido)
+
+( Finalizar Compra ) --> SistemaDePagamento
+( Acompanhar Pedido ) --> SistemaDeEntrega
+
+Administrador --> (Gerenciar Produtos)
+Administrador --> (Gerenciar Usuários)
+Administrador --> (Gerenciar Pedidos)
+Administrador --> (Gerar Relatórios)
